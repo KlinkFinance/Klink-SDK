@@ -35,7 +35,7 @@ class KlinkSDK
      * Create SDK instance with health check
      * 
      * @param array $config Configuration array
-     * @return static
+     * @return self
      * @throws \Exception If health check fails
      */
     public static function create(array $config): self

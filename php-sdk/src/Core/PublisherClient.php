@@ -11,7 +11,6 @@ class PublisherClient
 {
     private HttpClient $httpClient;
     private Logger $logger;
-    private ?string $apiSecret;
 
     public function __construct(HttpClient $httpClient, Logger $logger, ?string $apiSecret)
     {
@@ -23,7 +22,6 @@ class PublisherClient
 
         $this->httpClient = $httpClient;
         $this->logger = $logger;
-        $this->apiSecret = $apiSecret;
     }
 
     /**
