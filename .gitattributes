@@ -1,0 +1,7 @@
+/python-sdk export-ignore
+/.github export-ignore
+Makefile export-ignore
+STRUCTURE.md export-ignore
+PUBLISHING.md export-ignore
+CONTRIBUTING.md export-ignore
+QUICK_START.md export-ignore

@@ -6,12 +6,12 @@
          verbose="true">
     <testsuites>
         <testsuite name="Klink Finance SDK Test Suite">
-            <directory>tests</directory>
+            <directory>php-sdk/tests</directory>
         </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
         <include>
-            <directory suffix=".php">src</directory>
+            <directory suffix=".php">php-sdk/src</directory>
         </include>
     </coverage>
 </phpunit>

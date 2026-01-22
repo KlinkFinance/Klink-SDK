@@ -13,7 +13,7 @@ install: install-php install-python
 install-php:
 	@echo "Installing PHP dependencies..."
 	@if command -v composer >/dev/null 2>&1; then \
-		cd php-sdk && composer install; \
+		composer install; \
 	else \
 		echo "Composer not found, skipping PHP installation."; \
 	fi
@@ -34,7 +34,7 @@ test: test-php test-python
 test-php:
 	@echo "Running PHP tests..."
 	@if command -v php >/dev/null 2>&1; then \
-		cd php-sdk && ./vendor/bin/phpunit; \
+		./vendor/bin/phpunit; \
 	else \
 		echo "PHP not found, skipping PHP tests."; \
 	fi
@@ -47,7 +47,7 @@ lint: lint-php lint-python
 
 lint-php:
 	@echo "Linting PHP..."
-	cd php-sdk && ./vendor/bin/phpstan analyse src
+	./vendor/bin/phpstan analyse
 
 lint-python:
 	@echo "Linting Python..."

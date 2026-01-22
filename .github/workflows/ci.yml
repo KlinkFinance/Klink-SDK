@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./php-sdk
+        working-directory: .
     steps:
     - uses: actions/checkout@v4
     
@@ -29,7 +29,7 @@ jobs:
       run: ./vendor/bin/phpunit
 
     - name: Run Static Analysis
-      run: ./vendor/bin/phpstan analyse src
+      run: ./vendor/bin/phpstan analyse
 
   test-python:
     name: Python Tests

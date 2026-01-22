@@ -21,12 +21,12 @@
   },
   "autoload": {
     "psr-4": {
-      "KlinkFinance\\SDK\\": "src/"
+      "KlinkFinance\\SDK\\": "php-sdk/src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "KlinkFinance\\SDK\\Tests\\": "tests/"
+      "KlinkFinance\\SDK\\Tests\\": "php-sdk/tests/"
     }
   },
   "minimum-stability": "stable",
