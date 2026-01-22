@@ -1,0 +1,28 @@
+name: Release PHP SDK
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # For PHP, the tag itself is usually enough for Packagist.
+      # This workflow acts as a placeholder or can be used to run extra validation before "releasing".
+      # For example, ensuring the tag matches the composer.json version.
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+
+      - name: Validate Composer.json
+        working-directory: ./php-sdk
+        run: composer validate --strict

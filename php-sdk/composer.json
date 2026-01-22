@@ -1,0 +1,34 @@
+{
+  "name": "klinkfinance/sdk",
+  "description": "Official PHP SDK for the Klink platform",
+  "type": "library",
+  "license": "MIT",
+  "keywords": ["klink", "affiliate", "publisher", "advertiser", "sdk"],
+  "authors": [
+    {
+      "name": "Klink Finance",
+      "email": "support@klink.finance"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "guzzlehttp/guzzle": "^7.0",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0",
+    "phpstan/phpstan": "^1.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "KlinkFinance\\SDK\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "KlinkFinance\\SDK\\Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
