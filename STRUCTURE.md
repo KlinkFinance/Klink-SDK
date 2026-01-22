@@ -24,7 +24,8 @@ klink-sdks/
 │   │   │   └── AdvertiserClient.php  # Advertiser API
 │   │   ├── Types/
 │   │   │   ├── Config.php            # Configuration
-│   │   │   └── Exceptions.php        # Custom exceptions
+│   │   │   ├── KlinkException.php    # Base exception
+│   │   │   └── ...                   # API, Auth, Network exceptions
 │   │   └── Utils/
 │   │       ├── Logger.php            # Debug logging
 │   │       └── Validator.php         # Config validation

@@ -1,5 +1,8 @@
 # Klink Finance Python SDK
 
+[![PyPI version](https://badge.fury.io/py/klinkfinance-sdk.svg)](https://badge.fury.io/py/klinkfinance-sdk)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 Official Python SDK for the Klink platform. This SDK provides a simple and consistent interface for both Publishers and Advertisers to integrate with Klink's API.
 
 ## Features

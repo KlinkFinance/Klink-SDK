@@ -1,5 +1,8 @@
 # Klink Finance PHP SDK
 
+[![Latest Stable Version](https://poser.pugx.org/klinkfinance/sdk/v/stable)](https://packagist.org/packages/klinkfinance/sdk)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 Official PHP SDK for the Klink platform. This SDK provides a simple and consistent interface for both Publishers and Advertisers to integrate with Klink's API.
 
 ## Features

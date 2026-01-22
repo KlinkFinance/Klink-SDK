@@ -1,5 +1,9 @@
 # Klink Finance SDKs - PHP & Python
 
+[![Latest Stable Version](https://poser.pugx.org/klinkfinance/sdk/v/stable)](https://packagist.org/packages/klinkfinance/sdk)
+[![PyPI version](https://badge.fury.io/py/klinkfinance-sdk.svg)](https://badge.fury.io/py/klinkfinance-sdk)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 Complete implementation of Klink Finance SDKs in PHP and Python, matching the functionality of the Node.js SDK.
 
 ## 📦 What's Included
@@ -67,13 +71,21 @@ $offers = $publisher->getOffers(['limit' => 10]);
 
 ### Python SDK
 
+Install via pip:
+
+```bash
+pip install klinkfinance-sdk
+```
+
+Or for local development:
+
 ```bash
 cd python-sdk
 pip install -e .
 ```
 
 ```python
-from klink_sdk import KlinkSDK
+from klinkfinance_sdk import KlinkSDK
 
 client = KlinkSDK.create(
     api_key="your-api-key",
@@ -97,9 +109,9 @@ klink-sdks/
 │   │   │   ├── PublisherClient.php
 │   │   │   └── AdvertiserClient.php
 │   │   ├── Types/
-│   │   │   └── Config.php
-│   │   ├── Exceptions/
-│   │   │   └── KlinkExceptions.php
+│   │   │   ├── Config.php
+│   │   │   ├── KlinkException.php
+│   │   │   └── [Other Exceptions...]
 │   │   └── KlinkSDK.php
 │   └── examples/
 │       └── publisher-example.php
