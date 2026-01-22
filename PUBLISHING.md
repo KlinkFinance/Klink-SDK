@@ -28,9 +28,9 @@ The Python SDK publishing process is automated via GitHub Actions, but requires 
 
 To publish a new version:
 
-1.  Update the version number in `python-sdk/setup.py`:
-    ```python
-    version="1.0.1", # Increment this
+1.  Update the version number in `python-sdk/pyproject.toml` (and `setup.py` if you are keeping them in sync):
+    ```toml
+    version = "1.0.1" # Increment this in pyproject.toml
     ```
 2.  Create a new Release in GitHub:
     *   Go to **Releases** > **Draft a new release**.

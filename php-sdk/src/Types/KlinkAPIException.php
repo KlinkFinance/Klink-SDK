@@ -7,27 +7,6 @@ namespace KlinkFinance\SDK\Types;
 use Exception;
 
 /**
- * Base exception class for all Klink SDK errors
- */
-class KlinkException extends Exception
-{
-}
-
-/**
- * Configuration validation errors
- */
-class KlinkConfigException extends KlinkException
-{
-}
-
-/**
- * Authentication and authorization errors
- */
-class KlinkAuthException extends KlinkException
-{
-}
-
-/**
  * API errors with status codes
  */
 class KlinkAPIException extends KlinkException
@@ -55,11 +34,4 @@ class KlinkAPIException extends KlinkException
     {
         return $this->responseData;
     }
-}
-
-/**
- * Network and connectivity errors
- */
-class KlinkNetworkException extends KlinkException
-{
 }

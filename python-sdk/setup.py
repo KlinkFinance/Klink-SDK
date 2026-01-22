@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="klinkfinance-sdk",
-    version="0.1.0",
+    version="1.0.0",
     author="Klink Finance",
     author_email="support@klink.finance",
     description="Official Python SDK for the Klink platform",
