@@ -39,6 +39,14 @@ make clean
 
 ### PHP SDK
 
+Install via Composer:
+
+```bash
+composer require klinkfinance/sdk
+```
+
+Or for local development:
+
 ```bash
 cd php-sdk
 composer install
