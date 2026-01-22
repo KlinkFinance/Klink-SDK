@@ -419,7 +419,7 @@ Both SDKs are released under the MIT License, matching the Node.js SDK.
 
 For issues, questions, or contributions:
 - GitHub Issues: https://github.com/KlinkFinance/publisher-sdk/issues
-- Email: dev@klink.finance
+- Email: dev@klinkfinance.com
 
 ## 🎉 Summary
 
