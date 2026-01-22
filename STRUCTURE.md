@@ -8,6 +8,7 @@ klink-sdks/
 │   ├── ci.yml                     # Test & Lint workflow
 │   ├── publish-python.yml         # PyPI deployment
 │   └── release-php.yml            # PHP release validation
+├── PUBLISHING.md                   # Guide for publishing packages
 ├── Makefile                        # Monorepo management commands
 ├── .gitignore                      # Git ignore rules
 ├── SDK_IMPLEMENTATION_GUIDE.md     # Complete implementation guide
