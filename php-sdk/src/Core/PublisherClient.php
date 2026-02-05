@@ -6,6 +6,7 @@ namespace KlinkFinance\SDK\Core;
 
 use KlinkFinance\SDK\Types\KlinkConfigException;
 use KlinkFinance\SDK\Utils\Logger;
+use Firebase\JWT\JWT;
 
 class PublisherClient
 {
@@ -96,5 +97,64 @@ class PublisherClient
     {
         $this->logger->info('Sending test postback', $data);
         return $this->httpClient->post('/v1/publisher/postback/test', $data);
+    }
+
+    /**
+     * Create a JWT token for quest redirection
+     *
+     * @param array $params Dictionary containing offerId, sub, pub, etc.
+     * @param string $secret JWT secret key
+     * @return array Dictionary containing token and expiresAt
+     * @throws \InvalidArgumentException If required parameters are missing
+     */
+    public function createQuestRedirectToken(array $params, string $secret): array
+    {
+        $this->logger->debug('Creating quest redirect token with params', $params);
+
+        // Validate required parameters
+        if (empty($params['offerId']) || empty($params['sub']) || empty($params['pub'])) {
+            throw new \InvalidArgumentException('offerId, sub, and pub are required');
+        }
+
+        if (empty($secret)) {
+            throw new \InvalidArgumentException('JWT secret is required');
+        }
+
+        try {
+            // Calculate expiration time
+            $expirationMinutes = $params['expirationMinutes'] ?? 10;
+            $currentTime = time();
+            $expiresAt = $currentTime + ($expirationMinutes * 60);
+
+            // Build JWT payload
+            $payload = [
+                'offerId' => $params['offerId'],
+                'exp' => $expiresAt,
+                'sub' => $params['sub'],
+                'pub' => $params['pub'],
+                'iat' => $currentTime
+            ];
+
+            // Add custom params if provided
+            if (isset($params['custom_params'])) {
+                $payload['custom_params'] = $params['custom_params'];
+            }
+
+            $this->logger->debug('JWT payload', $payload);
+
+            // Sign the token
+            $token = JWT::encode($payload, $secret, 'HS256');
+
+            $this->logger->debug('JWT token created successfully');
+
+            return [
+                'token' => $token,
+                'expiresAt' => $expiresAt
+            ];
+
+        } catch (\Exception $e) {
+            $this->logger->error('Error creating quest redirect token', ['error' => $e->getMessage()]);
+            throw $e;
+        }
     }
 }

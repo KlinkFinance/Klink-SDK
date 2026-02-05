@@ -1,6 +1,8 @@
 """
 Publisher API client for Klink SDK
 """
+import time
+import jwt
 from typing import Any, Dict, Optional
 from ..types import KlinkConfigException
 from ..utils import Logger
@@ -127,3 +129,72 @@ class PublisherClient:
         """
         self.logger.info("Sending test postback", data)
         return self.http_client.post("/v1/publisher/postback/test", data)
+
+    def create_quest_redirect_token(
+        self,
+        params: Dict[str, Any],
+        secret: str
+    ) -> Dict[str, Any]:
+        """
+        Create a JWT token for quest redirection
+        
+        Args:
+            params: Dictionary containing:
+                - offerId: Offer ID (required)
+                - sub: Subject/Subscriber ID (required)
+                - pub: Publisher ID (required)
+                - expirationMinutes: Expiration time in minutes (default: 10)
+                - custom_params: Optional custom parameters dictionary
+            secret: JWT secret key (required)
+            
+        Returns:
+            Dictionary containing:
+                - token: Signed JWT token
+                - expiresAt: Expiration timestamp
+                
+        Raises:
+            ValueError: If required parameters are missing
+        """
+        self.logger.debug("Creating quest redirect token with params", params)
+        
+        # Validate required parameters
+        if not params.get("offerId") or not params.get("sub") or not params.get("pub"):
+            raise ValueError("offerId, sub, and pub are required")
+            
+        if not secret or not secret.strip():
+            raise ValueError("JWT secret is required")
+            
+        try:
+            # Calculate expiration time
+            expiration_minutes = params.get("expirationMinutes", 10)
+            current_time = int(time.time())
+            expires_at = current_time + (expiration_minutes * 60)
+            
+            # Build JWT payload
+            payload = {
+                "offerId": params["offerId"],
+                "exp": expires_at,
+                "sub": params["sub"],
+                "pub": params["pub"],
+                "iat": current_time
+            }
+            
+            # Add custom params if provided
+            if params.get("custom_params"):
+                payload["custom_params"] = params["custom_params"]
+                
+            self.logger.debug("JWT payload", payload)
+            
+            # Sign the token
+            token = jwt.encode(payload, secret, algorithm="HS256")
+            
+            self.logger.debug("JWT token created successfully")
+            
+            return {
+                "token": token,
+                "expiresAt": expires_at
+            }
+            
+        except Exception as error:
+            self.logger.error("Error creating quest redirect token", {"error": str(error)})
+            raise error
