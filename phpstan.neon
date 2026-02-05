@@ -3,7 +3,7 @@ parameters:
 	paths:
 		- php-sdk/src
 	bootstrapFiles:
-		- php-sdk/vendor/autoload.php
+		- vendor/autoload.php
 	scanFiles:
-		- php-sdk/vendor/firebase/php-jwt/src/JWT.php
-		- php-sdk/vendor/firebase/php-jwt/src/Key.php
+		- vendor/firebase/php-jwt/src/JWT.php
+		- vendor/firebase/php-jwt/src/Key.php
