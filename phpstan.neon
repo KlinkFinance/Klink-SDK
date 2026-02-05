@@ -2,3 +2,8 @@ parameters:
 	level: 5
 	paths:
 		- php-sdk/src
+	bootstrapFiles:
+		- php-sdk/vendor/autoload.php
+	scanFiles:
+		- php-sdk/vendor/firebase/php-jwt/src/JWT.php
+		- php-sdk/vendor/firebase/php-jwt/src/Key.php
