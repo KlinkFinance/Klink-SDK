@@ -27,6 +27,7 @@ setup(
     python_requires=">=3.8",
     install_requires=[
         "requests>=2.28.0",
+        "PyJWT>=2.0.0",
     ],
     extras_require={
         "dev": [
